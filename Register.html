@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="main.css">
+ 
+
+    <title>Create Account - ALROFGAN Book Shop</title>
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <img src="images/logo.jpg" alt="logo">
+        <div>
+            <a href="home.html">Home</a>
+            <a href="shop.html">Our Shop</a>
+            <a href="story.html">Our Story</a>
+        </div>
+    </div>
+
+    <!-- Welcome Message -->
+    <div id="welcome-message"></div>
+
+    <!-- Contact Form Section -->
+    <div class="contact-container">
+        <h1 class="clr4message">Create an Account</h1>
+        <form action="submit_form.php" method="post" class="contact-form" id="contact-form">
+            <!-- First Name Field -->
+            <label for="first-name"><b>First Name:</b></label>
+            <input 
+                type="text" 
+                id="first-name" 
+                name="first-name" 
+                class="input-field" 
+                required 
+                minlength="3" 
+                maxlength="50" 
+                placeholder="Enter your first name" 
+                title="Name must be between 3 and 50 characters and contain only letters.">
+            <p class="error-message" id="first-name-error">First Name must contain only letters and at least 3 characters.</p>
+
+            <!-- Last Name Field -->
+            <label for="last-name"><b>Last Name:</b></label>
+            <input 
+                type="text" 
+                id="last-name" 
+                name="last-name" 
+                class="input-field" 
+                required 
+                minlength="3" 
+                maxlength="50" 
+                placeholder="Enter your last name" 
+                title="Name must be between 3 and 50 characters and contain only letters.">
+            <p class="error-message" id="last-name-error">Last Name must contain only letters and at least 3 characters.</p>
+
+            <!-- Email Field -->
+            <label for="email"><b>Email:</b></label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="input-field" 
+                required 
+                placeholder="Enter your email address" 
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                title="Please enter a valid email address.">
+            <p class="error-message" id="email-error">Please enter a valid email address.</p>
+
+            <!-- Phone Number Field -->
+            <label for="phone-number"><b>Phone Number:</b></label>
+            <div style="display: flex; align-items: center;">
+                <span style="padding: 5px; font-size: 16px;">+973 </span>
+                <input 
+                    type="text" 
+                    id="phone-number" 
+                    name="phone-number" 
+                    class="input-field" 
+                    required 
+                    maxlength="8" 
+                    placeholder="Enter the remaining 8 digits" 
+                    pattern="\d{8}" 
+                    title="Phone number must be exactly 8 digits.">
+            </div>
+            <p class="error-message" id="phone-number-error">Phone number must contain exactly 8 digits.</p>
+
+            <!-- Password Field -->
+            <label for="pwd"><b>Create a Password:</b></label>
+            <input 
+                type="password" 
+                id="pwd" 
+                name="pwd" 
+                class="input-field" 
+                required 
+                minlength="10" 
+                placeholder="Create a secure password" 
+                title="Password must be at least 10 characters long and include both uppercase and lowercase letters.">
+            <p class="error-message" id="password-error">Password must be at least 10 characters long and include both uppercase and lowercase letters.</p>
+
+            <!-- Confirm Password Field -->
+            <label for="confirm-pwd"><b>Confirm Password:</b></label>
+            <input 
+                type="password" 
+                id="confirm-pwd" 
+                name="confirm-pwd" 
+                class="input-field" 
+                required 
+                minlength="10" 
+                placeholder="Re-enter your password">
+            <p class="error-message" id="confirm-password-error">Passwords do not match.</p>
+
+            <!-- Submit Button -->
+            <button type="submit" class="confirm">Submit</button>
+            <p class="success-message" id="success-message">Form submitted successfully!</p>
+        </form>
+
+        <!-- Success Pop-Up -->
+        <div id="success-popup" class="popup">
+            <div class="popup-content">
+                <h2>Registration Successful!</h2>
+                <p>Your account has been created successfully.</p>
+                <button id="close-popup">OK</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Copyright © 2024 ALROFGAN Book Shop. Developed by ALROFGAN Group</p>
+        <div class="cards">
+            <img src="images/mastercard.png" alt="MasterCard">
+            <img src="images/visa.png" alt="Visa">
+            <img src="images/paypal.png" alt="PayPal">
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for real-time validation
+        document.getElementById("first-name").addEventListener("input", validateFirstName);
+        document.getElementById("last-name").addEventListener("input", validateLastName);
+        document.getElementById("email").addEventListener("input", validateEmail);
+        document.getElementById("phone-number").addEventListener("input", validatePhoneNumber);
+        document.getElementById("pwd").addEventListener("input", validatePassword);
+        document.getElementById("confirm-pwd").addEventListener("input", validateConfirmPassword);
+
+        // Real-time validation functions
+        function validateFirstName() {
+            const firstName = document.getElementById("first-name").value.trim();
+            const firstNameError = document.getElementById("first-name-error");
+            if (firstName.length < 3 || !/^[a-zA-Z]+$/.test(firstName)) {
+                firstNameError.style.display = "block";
+            } else {
+                firstNameError.style.display = "none";
+            }
+        }
+
+        function validateLastName() {
+            const lastName = document.getElementById("last-name").value.trim();
+            const lastNameError = document.getElementById("last-name-error");
+            if (lastName.length < 3 || !/^[a-zA-Z]+$/.test(lastName)) {
+                lastNameError.style.display = "block";
+            } else {
+                lastNameError.style.display = "none";
+            }
+        }
+
+        function validateEmail() {
+            const email = document.getElementById("email").value.trim();
+            const emailError = document.getElementById("email-error");
+            const emailPattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                emailError.style.display = "block";
+            } else {
+                emailError.style.display = "none";
+            }
+        }
+
+        function validatePhoneNumber() {
+            const phoneNumber = document.getElementById("phone-number").value.trim();
+            const phoneError = document.getElementById("phone-number-error");
+            if (!/^\d{8}$/.test(phoneNumber)) {
+                phoneError.style.display = "block";
+            } else {
+                phoneError.style.display = "none";
+            }
+        }
+
+        function validatePassword() {
+            const password = document.getElementById("pwd").value.trim();
+            const passwordError = document.getElementById("password-error");
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasLowerCase = /[a-z]/.test(password);
+            if (password.length < 10 || !hasUpperCase || !hasLowerCase) {
+                passwordError.style.display = "block";
+            } else {
+                passwordError.style.display = "none";
+            }
+        }
+
+        function validateConfirmPassword() {
+            const password = document.getElementById("pwd").value.trim();
+            const confirmPassword = document.getElementById("confirm-pwd").value.trim();
+            const confirmPasswordError = document.getElementById("confirm-password-error");
+            if (password !== confirmPassword) {
+                confirmPasswordError.style.display = "block";
+            } else {
+                confirmPasswordError.style.display = "none";
+            }
+        }
+
+        // Form submission and saving to localStorage
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get input values
+            const firstName = document.getElementById("first-name").value.trim();
+            const lastName = document.getElementById("last-name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phoneNumber = document.getElementById("phone-number").value.trim();
+            const password = document.getElementById("pwd").value.trim();
+            const confirmPassword = document.getElementById("confirm-pwd").value.trim();
+
+            // If validation passes, save to localStorage and show success popup
+            if (firstName && lastName && email && phoneNumber && password === confirmPassword) {
+                localStorage.setItem("user", JSON.stringify({
+                    firstName,
+                    lastName,
+                    email,
+                    phoneNumber,
+                    password
+                }));
+
+                // Show success popup
+                document.getElementById("success-popup").style.display = "flex";
+            } else {
+                alert("Please fix the errors before submitting.");
+            }
+        });
+
+        // Close the success popup
+        document.getElementById("close-popup").addEventListener("click", function () {
+            document.getElementById("success-popup").style.display = "none";
+
+            // Display welcome message
+            const user = JSON.parse(localStorage.getItem("user"));
+            if (user) {
+                const welcomeMessage = document.getElementById("welcome-message");
+                welcomeMessage.textContent = `Welcome, ${user.firstName} ${user.lastName}!`;
+                welcomeMessage.style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
