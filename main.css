@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&family=Cairo&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body {
+    padding-bottom: 70px;  
+    margin: 0;
+}
+.footer {
+    height: 50px;  
+}
+
+.header{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #130912;
+    padding: 5px 10px;
+}
+.header img{
+    height: 100px;
+}
+.header div a{
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #FAFAFA;
+    margin: 0 20px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+.header div a:hover{
+    color: #E77917;
+    text-decoration: underline;
+}
+.header-contact{
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #130912;
+    transition: 0.2s;
+    text-decoration: none;
+    margin-right: 30px;
+    background-color: #E77917;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+.header-contact:hover{
+    background-color: #e77817ad;
+}
+/* Home Page css content*/
+.mid
+{      
+padding: 1rem 1rem;
+background-color: rgba(251, 251, 251, 0.127);
+}
+.mid-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mid-content
+{
+    max-width: 1366px;
+    height:90vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0 auto;
+    padding:0 5rem;
+    display: flex;
+    flex-direction: column;
+
+}
+.mid-img img{
+    width:100%;
+    height: auto;
+    max-width: 100%;
+
+
+}
+.content
+{
+    padding: 2rem;
+    display: flex;
+    flex-direction:column;
+}
+.content h1{
+    color:purple;
+    font-size: 35px;
+}
+.content h2{
+    font-size: 35px;
+    color:orangered
+    
+}
+.content p{
+    max-width: 880;
+    font-size: 30px;
+    color:chocolate
+}
+/*btns */
+.btns{ 
+    flex-direction: row;
+    background-color:rgb(0, 0, 0) ;
+    width:10rem;
+    margin-top:3rem;
+    border-radius: 0.5rem;
+    outline: none;
+    border:none;
+    padding:1rem 1.4rem;
+    margin:1rem
+}
+.btns:hover{
+    background-color: rgb(255, 131, 69);
+    transition: 0.5s;
+}
+.btns a{
+    font-weight: bold;
+    color:
+    rgb(255, 255, 255);
+    font-size: 1.1rem;
+    text-decoration: none;
+
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    background-color: #130912;
+    color: #FAFAFA;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 98%;
+    z-index: 1000;
+}
+.footer p{
+    color: #fafafa79;
+    font-size: smaller;
+}
+/*  story.html code */
+.story{
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    font-family: Comic Sans MS;
+    font-weight: bold;
+    background-color: #999;
+    padding-top: 32px ;
+    padding-bottom: 32px;
+}
+.head1{
+    color: blue;
+    text-decoration: underline;
+    text-align: center;
+}
+.para1{
+    color: black;
+}
+.head2{
+    color: blue;
+    text-decoration: underline;
+    text-align: center;
+}
+.para2{
+    color: black;
+}
+.head3{
+    color: blue;
+    text-decoration: underline;
+    text-align: center;
+}
+.para3{
+    color: black;
+}
+.head4{
+    color: blue;
+    text-decoration: underline;
+    text-align: center;
+}
+.para4{
+    color: black;
+}
+
+.first-row{
+     display: flex;
+}
+
+.user{
+    width: 100%;
+    margin-right: 40px;
+}
+
+.input-field{
+    border: 2px solid black;
+}
+
+.input-field input{
+    width: 100%;
+    outline: none;
+    padding: 10px;
+}
+
+.selection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selection select{
+    padding: 10px 20px;
+    border: 2px solid black;
+}
+
+.confirm{
+    background-color: black;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.confirm:hover{
+    color: #E77917;
+    text-decoration: underline;
+}
+
+.cards img{
+    width: 50px;
+}
+.vip-section
+{
+    background-color: grey;
+    padding:2rem 0;
+}
+.section-b
+{
+    max-width: 1366px;
+    display: flex;
+    flex-direction: column;    
+    margin:0 auto;
+    padding:0 1rem;
+    justify-content: center;
+    font-family: 'Alegreya Sans', sans-serif;
+
+}
+.section-b h2{
+    color:rgb(0, 0, 0);
+    text-decoration: underline;
+    text-align: center;
+    font-size: 2em;
+}
+.features
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.feature
+{   display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding:1.5rem;
+    border-radius: 1rem;
+    max-width: 17rem;
+    margin:1rem;
+    flex: 1 1 30%;
+}
+.feature h3, .feature p {
+    text-align: center; /* Center the text for both titles and paragraphs */
+}
+.feature:hover
+{
+    border:2px solid red;
+}
+.feature i{
+    font-size: 1.6rem;
+    color:blue;
+    margin-bottom: 1rem;
+    }
+.feature h3{
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+.feature p{
+        font-size: 1.2rem;
+        text-align: center;
+    }
+ .collection{
+        padding:3rem 3rem;
+        background-color: gray;
+    }
+.books-section
+    {   
+        max-width: 1366px;
+        margin:0 auto;
+        padding:0 5rem;
+        font-family: 'Alegreya Sans', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+.books-section h1
+{
+    color:rgb(0, 0, 0);
+    font-size: 2em;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+.books {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 1rem;
+ }
+
+.book{
+    margin: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #eeeee5;
+    padding:1.5rem;
+    border-radius: 1rem;
+    max-width: 250px;
+    margin:1rem;
+}
+.book img{
+    margin-bottom: 1rem;
+    width:100%;
+}
+.book h2{
+    margin-top: 1rem;
+    color: rgb(0, 255, 76);
+}
+.btn{
+    margin-bottom:3rem;
+    width:18rem;
+    padding:0.7rem 0;
+    border:none;
+    font-family: 'Alegreya Sans', sans-serif;
+    background-color: #130912;
+    border-radius: 10px;
+}
+.btn a
+{   
+    text-decoration: none;
+    font-size: 1.2rem;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+}
+.btn a:hover{
+        color: #E77917;
+        text-decoration: underline;
+        transition: 0.5s;
+}
+h1, h2 {
+    color: #4b0082;
+    text-align: center;
+  }
+h3 {
+    color: #8b4513;
+  }
+
+ul{
+    list-style-type: none;
+    padding: 0;
+  }
+  .container {
+    display: flex;
+    flex-direction:column;
+    align-items:normal;
+    max-width: 1200px;
+    margin: auto;
+  }
+  /* contact.html code  */
+  .contact-info, .contact-container, .map-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.contact-info h1{
+    text-align: center;
+    color: #E77917;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.contact-form .input-field, .contact-form button.confirm {
+    width: 100%;
+    margin: 10px 0;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.clr4message{
+    color: #E77917;
+    font-family: 'Alegreya Sans', sans-serif;
+    text-align: center;
+    font-style: italic;
+    text-decoration: none;
+    
+}
+.confirm{
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+  /* payment.html code  */
+#am-9-00, #pm-12-00, #pm-3-00, #pm-6-00, #pm-9-00{
+    cursor: pointer;
+    accent-color: #E77917;
+}
+.show-time label{
+    color: #000000;
+    margin-right: 3px;
+    transition: 0.2s;
+}
+.show-time label:hover{
+    text-decoration: underline;
+    color: #E77917;
+}
+.form-input{
+    border: 1px #E77917;
+    background-color: #1d1c1c;
+    border-radius: 6px;
+    padding: 8px 0;
+    color: #E77917;
+    padding-left: 4px;
+    width: 350px;
+    margin-top: 8px;
+    outline: none;
+    font-size: 21px;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+.form-label{
+    color: black;
+    font-size: 21px;
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: bold;
+}
+.form-label:hover{
+    color: #000000;
+    text-decoration: underline;
+}
+.service-m{
+    color: black;
+    font-size: 21px;
+    transition: 0.2s;
+    font-weight: bold;
+}
+.service-m:hover{
+    text-decoration: underline;
+    color: #000000;
+}
+#m1, #m2, #m3, #m4, #m5{
+    accent-color: #000000;
+    cursor: pointer;
+}
+#card-details{
+    display: block;
+    color: black;
+    font-size: 21px;
+    text-align: center;
+}
+#card-details label{
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: bold;
+}
+#card-details label:hover{
+    color: #000000;
+    text-decoration: underline;
+}
+#card-details input{
+    border: 1px #000000 solid;
+    background-color: #1d1c1c;
+    border-radius: 6px;
+    padding: 8px 0;
+    color: #E77917;
+    padding-left: 4px;
+    width: 350px;
+    margin-top: 8px;
+    outline: none;
+    font-size: 21px;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+.form-button{
+    background-color: #E77917;
+    color: #000000;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: 0.2s;
+    font-size: 21px;
+    border: 0;
+    font-family: 'Alegreya Sans', sans-serif;
+    margin-top: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/*Sign in */
+
+.signIn-form {
+    background: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 500px; /* Set your desired width */
+    position: absolute; /* Use absolute positioning */
+    top: 50%; /* Position from the top */
+    left: 50%; /* Position from the left */
+    transform: translate(-50%, -50%); /* Center it */
+}
+        
+            .signIn-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .input-box {
+            width: 90%;
+            padding: 10px;
+            
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+     
+        .submit-button {
+    background-color: #2f85e2;
+    color: white;
+    border: none;
+    padding: 9px; /* Initial padding */
+    border-radius: 4px;
+    cursor: pointer;
+    width: 75%;
+    font-weight: bold;
+
+}
+.submit-button:hover{
+    background-color: red;
+}
+.submit-button:focus{
+    background-color: rgb(161, 0, 0);
+}
+       
+/* Pop-Up Styling */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+.popup-content h2 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 22px;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 16px;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: #0056b3;
+}
+/* Making of ALROFGAN Book Shop Website */
+.makingofbody {
+    font-family: 'Alegreya Sans', sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+.text-center {
+    text-align: center;
+}
+.primary-heading {
+    color: #4b0082;
+}
+.section-container {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.paragraph {
+    margin: 10px 0;
+    color: #333;
+}
+.list {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+.list-item {
+    margin-bottom: 5px;
+}
+ /* payment styling */
+      /* Services Section Styling */
+      .services-container {
+        margin: 20px auto;
+        text-align: left;
+        max-width: 400px;
+        font-family: Arial, sans-serif;
+    }
+
+    .services-container label {
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 2;
+        display: flex;
+        align-items: center;
+    }
+
+    .services-container input[type="checkbox"] {
+        margin-right: 10px;
+    }
+
+    .services-container p {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    /* Styling for Total Price */
+    .total-price {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #007BFF;
+    }
+
+    /*email-notice here*/
+    #error1, #error2, #error3,#error4,#error5{
+        color: red;
+    }
+    /* Register styling */
+
+        .success-message {
+            display: none;
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            display: none;
+            margin-top: 5px;
+        }
+
+        #welcome-message {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            color: #2d2d2d;
+            font-weight: bold;
+        }
+
+        .input-field {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .storyBody
+        {
+          background-color: #999;
+        }
+      .storyTable {
+        width: 50%;
+        border-collapse: collapse;
+        margin: 20px auto;
+        text-align: left;
+    }
+    .storyTable th, .storyTable td {
+        border: 1px solid rgb(98, 46, 46);
+        padding: 8px 12px;
+        text-align: center;
+    
+    }
