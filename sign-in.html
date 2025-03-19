@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+    <title>Sign In - ALROFGAN Book Shop</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <img src="images/logo.jpg" alt="logo">
+        <div>
+            <a href="home.html">Home</a>
+            <a href="shop.html">Our Shop</a>
+            <a href="story.html">Our Story</a>
+        </div>
+    </div>
+
+    <!-- Welcome Message -->
+    <div id="welcome-message"></div>
+
+    <!-- Sign In Section -->
+    <center>
+        <form id="sign-in-form" class="signIn-form" novalidate>
+            <h2>Sign In</h2>
+            
+            <!-- Email Field -->
+            <label for="email"><b>Email:</b></label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="input-box" 
+                required 
+                placeholder="Enter your email">
+            <p class="error-message" id="email-error">Please enter a valid email address.</p>
+
+            <!-- Password Field -->
+            <label for="pwd"><b>Password:</b></label>
+            <input 
+                type="password" 
+                id="pwd" 
+                name="pwd" 
+                class="input-box" 
+                required 
+                minlength="8" 
+                placeholder="Enter your password">
+            <p class="error-message" id="password-error">Password must be at least 8 characters.</p>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button">Sign In</button>
+            <p class="error-message" id="auth-error">Incorrect email or password.</p>
+        </form>
+    </center>
+
+    <!-- Success Pop-Up -->
+    <div id="success-popup" class="popup">
+        <div class="popup-content">
+            <h2>Sign In Successful!</h2>
+            <p>Welcome back to ALROFGAN Book Shop.</p>
+            <button id="close-popup">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Copyright © 2024 ALROFGAN Book Shop. Developed by ALROFGAN group</p>
+        <div class="cards">
+            <img src="images/mastercard.png" alt="MasterCard">
+            <img src="images/visa.png" alt="Visa">
+            <img src="images/paypal.png" alt="PayPal">
+        </div>
+    </div>
+
+    <!-- JavaScript for Validation and Pop-Up -->
+    <script>
+        document.getElementById("sign-in-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let isValid = true;
+
+            // Clear previous error messages
+            document.querySelectorAll('.error-message').forEach(msg => msg.style.display = 'none');
+
+            // Fields
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("pwd").value.trim();
+
+            // Validate Email
+            if (email === ''||!email.includes('@')) {
+                document.getElementById("email-error").style.display = "block";
+                isValid = false;
+            } 
+
+            // Validate Password
+            if (password.length < 8) {
+                document.getElementById("password-error").style.display = "block";
+                isValid = false;
+            }
+
+            // Retrieve user data from Local Storage
+            const user = JSON.parse(localStorage.getItem("user"));
+
+            // Validate Email and Password against stored user data
+            if (user && isValid && (user.email !== email || user.password !== password)) {
+                document.getElementById("auth-error").style.display = "block";
+                isValid = false;
+            }
+
+            // If all validations pass, show success pop-up
+            if (isValid && user) {
+                const popup = document.getElementById("success-popup");
+                popup.style.display = "flex";
+
+                // Display Welcome Message
+                const welcomeMessage = document.getElementById("welcome-message");
+                welcomeMessage.textContent = `Welcome back, ${user.firstName} ${user.lastName}!`;
+                welcomeMessage.style.display = "block";
+            }
+        });
+
+        // Close Pop-Up
+        document.getElementById("close-popup").addEventListener("click", function() {
+            const popup = document.getElementById("success-popup");
+            popup.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
