@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.jpg" />
+    <link rel="stylesheet"  type="text/css" href="main.css" />
+
+    <title>Payment - ALROFGAN Book Shop</title>
+ 
+    <script>
+      /**/
+      function displayBookDetails() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookName = urlParams.get("bookName");
+        const bookPrice = urlParams.get("bookPrice");
+        const bookImage = urlParams.get("bookImage");
+
+        // Set the book details dynamically
+        if (bookName && bookPrice && bookImage) {
+          document.getElementById("selected-book-name").innerText = bookName;
+          document.getElementById("selected-book-price").innerText = `B.D ${bookPrice}`;
+          document.getElementById("selected-book-image").src = bookImage;
+        }
+      }
+
+      function required(event) {
+        event.preventDefault();
+        const phones = document.getElementById("phone-number").value;
+        const emails = document.getElementById("email").value;
+        const card = document.getElementById("card-number").value;
+        const expiryDate = document.getElementById("expiry-date").value;
+        const cvvs = document.getElementById("cvv").value;
+
+        const error1 = document.getElementById("error1");
+        const error2 = document.getElementById("error2");
+        const error3 = document.getElementById("error3");
+        const error4 = document.getElementById("error4");
+        const error5 = document.getElementById("error5");
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        error1.textContent = "";
+        error2.textContent = "";
+        error3.textContent = "";
+        error4.textContent = "";
+
+        let isValid = true;
+
+        if (!emailRegex.test(emails)) {
+          error1.textContent =
+            "*Please enter a valid email like this: student1@gmail.com";
+
+          return false;
+        }
+        if (phones.length != 8) {
+          error2.textContent =
+            "*Please enter a valid phone number consists of 8 numbers only";
+          return false;
+        }
+        if (card.length != 16) {
+          error3.textContent = "*Card number should contain 16 numbers only";
+          return false;
+        }
+        if (!expiryDate || !expiryDateRegex.test(expiryDate)) {
+          error4.textContent = "*Expiry date must be in MM/YY format";
+          return false;
+        }
+        if (!cvvs || cvvs.length != 4) {
+          error5.textContent = "*CVV should be 4 numbers";
+          return false;
+        } else {
+          document.getElementById("success-popup").style.display = "flex";
+          return true;
+        }
+      }
+    </script>
+  </head>
+  <body onload="displayBookDetails()">
+    <!-- Header Section -->
+    <div class="header">
+      <img src="images/logo.jpg" alt="logo" />
+      <div>
+        <a href="home.html">Home</a>
+        <a href="shop.html">Our Shop</a>
+        <a href="story.html">Our Story</a>
+      </div>
+    </div>
+
+    <!-- Payment Form Section -->
+    <div class="contact-container">
+      <h1 class="clr4message">Payment Details</h1>
+      <form id="payment-form">
+        <!-- Email Field -->
+        <label for="email"><b>Email:</b></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="input-field"
+          required
+          placeholder="Enter your email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="Please enter a valid email address."
+        />
+        <span id="error1"></span>
+        <br />
+
+        <br /><br />
+        <!-- <p class="error-message" id="email-error">Please enter a valid email address.</p> -->
+
+        <!-- Phone Number Field -->
+        <label for="phone-number"><b>Phone Number:</b></label>
+        <input
+          type="text"
+          id="phone-number"
+          name="phone-number"
+          class="input-field"
+          required
+          maxlength="8"
+          placeholder="Enter your phone number"
+          pattern="\d{8}"
+          title="Phone number must contain exactly 8 digits."
+         />
+        <!-- <p class="error-message" id="phone-number-error">Phone number must contain exactly 8 digits.</p> -->
+
+        <span id="error2"></span>
+        <br />
+        <!-- Book Details -->
+        <div class="book-details">
+          <h3>Selected Book:</h3>
+          <img id="selected-book-image" src="" alt="Selected Book" style="width: 100px;" />
+          <p id="selected-book-name"></p>
+          <p id="selected-book-price"></p>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services-container">
+          <p><b>Services:</b></p>
+          <label>
+            <input
+              onclick="updateTotalPrice()"
+              type="checkbox"
+              id="same-day-delivery"
+              value="2.5"
+            />
+            Same-Day Delivery
+          </label>
+          <label>
+            <input
+              onclick="updateTotalPrice()"
+              type="checkbox"
+              id="gift-wrapping"
+              value="1"
+            />
+            Gift Wrapping
+          </label>
+          <label>
+            <input
+              onclick="updateTotalPrice()"
+              type="checkbox"
+              id="rare-book-finder"
+              value="6"
+            />
+            Rare Book Finder
+          </label>
+          <label>
+            <input
+              onclick="updateTotalPrice()"
+              type="checkbox"
+              id="regular-delivery"
+              value="1.5"
+            />
+            Regular delivery
+          </label>
+          <label>
+            <input
+              onclick="updateTotalPrice()"
+              type="checkbox"
+              id="membership-deals"
+              value="10"
+            />
+            Membership for Exclusive Deals
+          </label>
+          <p>Price: <span id="base-price">B.D 5.5</span></p>
+          <p class="total-price">
+            Total: <span id="total-price">B.D 5.5</span>
+          </p>
+        </div>
+
+        <!-- Card Details -->
+        <label for="card-number"><b>Card Number:</b></label>
+        <input
+          type="text"
+          id="card-number"
+          name="card-number"
+          class="input-field"
+          required
+          minlength="16"
+          maxlength="16"
+          placeholder="Enter your card number"
+          pattern="\d{16}"
+          title="Card number must be exactly 16 digits."
+        />
+        <span id="error3"></span><br /><br />
+        <!-- <p class="error-message" id="card-number-error">Card number must be exactly 16 digits.</p> -->
+
+        <label for="expiry-date"><b>Expiry Date (MM/YY):</b></label>
+        <input
+          type="text"
+          id="expiry-date"
+          name="expiry-date"
+          class="input-field"
+          required
+          maxlength="5"
+          placeholder="MM/YY"
+          pattern="(0[1-9]|1[0-2])\/\d{2}"
+          title="Expiry date must be in MM/YY format."
+        />
+        <span id="error4"></span><br /><br />
+        <!-- <p class="error-message" id="expiry-date-error">Expiry date must be in MM/YY format.</p> -->
+
+        <label for="cvv"><b>CVV:</b></label>
+        <input
+          type="password"
+          id="cvv"
+          name="cvv"
+          class="input-field"
+          required
+          minlength="3"
+          maxlength="4"
+          placeholder="Enter CVV"
+          pattern="\d{3,4}"
+          title="CVV must be 3 or 4 digits."
+        />
+        <span id="error5"></span>
+        <br /><br />
+        <!-- <p class="error-message" id="cvv-error">CVV must be 3 or 4 digits.</p> -->
+
+        <!-- Submit Button -->
+        <button type="submit" class="confirm" onclick="required(event)">
+          Buy Book
+        </button>
+      </form>
+    </div>
+
+    <!-- Success Pop-Up -->
+    <div id="success-popup" class="popup">
+      <div class="popup-content">
+        <h2>Payment Successful!</h2>
+        <p>
+          Thank you for your purchase. Your payment has been processed
+          successfully.
+        </p>
+        <button id="close-popup">OK</button>
+      </div>
+    </div>
+      <!-- Footer Section -->
+      <div class="footer">
+        <p>Copyright © 2024 ALROFGAN Book Shop. Developed by ALROFGAN Group</p>
+        <div class="cards">
+            <img src="images/mastercard.png" alt="MasterCard">
+            <img src="images/visa.png" alt="Visa">
+            <img src="images/paypal.png" alt="PayPal">
+        </div>
+    </div>
+    <script>
+      function updateTotalPrice() {
+        const basePrice = 5.5;
+        let totalPrice = basePrice;
+
+        const checkboxes = document.querySelectorAll(
+          '.services-container input[type="checkbox"]'
+        );
+        checkboxes.forEach((checkbox) => {
+          if (checkbox.checked) {
+            totalPrice += parseFloat(checkbox.value);
+          }
+        });
+
+        document.getElementById(
+          "total-price"
+        ).innerText = `B.D ${totalPrice.toFixed(2)}`;
+      }
+
+      document
+        .getElementById("payment-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let isValid = true;
+
+          const email = document.getElementById("email").value.trim();
+          const phoneNumber = document
+            .getElementById("phone-number")
+            .value.trim();
+          const cardNumber = document
+            .getElementById("card-number")
+            .value.trim();
+          const expiryDate = document
+            .getElementById("expiry-date")
+            .value.trim();
+          const cvv = document.getElementById("cvv").value.trim();
+
+          if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email))
+            isValid = false;
+          if (!/^\d{8}$/.test(phoneNumber)) isValid = false;
+          if (!/^\d{16}$/.test(cardNumber)) isValid = false;
+          if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate)) isValid = false;
+          if (!/^\d{3,4}$/.test(cvv)) isValid = false;
+
+          if (isValid) {
+            document.getElementById("success-popup").style.display = "flex";
+          }
+        });
+
+      document
+        .getElementById("close-popup")
+        .addEventListener("click", function () {
+          document.getElementById("success-popup").style.display = "none";
+        });
+    </script>
+  </body>
+</html>
